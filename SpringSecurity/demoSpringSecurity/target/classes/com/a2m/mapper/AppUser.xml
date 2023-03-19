@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.a2m.demoSpringSecurity.dao.App_UserDAO">
+
+	<resultMap id="result" type="com.a2m.demoSpringSecurity.entity.app_user">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="encryted_password" column="encryted_password" />
+		<result property="password" column="password" />
+	</resultMap>
+
+	<select id="selectUser" resultMap="result">
+		select * from app_user
+	</select>
+
+	<select id="selectUserById" resultMap="result">
+		select * from app_user where id = #{id}
+	</select>
+
+</mapper>

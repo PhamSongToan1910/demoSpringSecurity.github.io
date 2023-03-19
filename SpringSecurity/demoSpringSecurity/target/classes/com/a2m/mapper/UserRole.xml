@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.a2m.demoSpringSecurity.dao.User_RoleDAO">
+
+	<resultMap id="result" type="com.a2m.demoSpringSecurity.entity.user_role">
+		<result property="id" column="ID" />
+		<result property="user_id" column="user_id" />
+		<result property="role_id" column="role_id" />
+	</resultMap>
+
+	<select id="selectUserRole" resultMap="result">
+		select * from user_role
+	</select>
+	
+	<resultMap id="result1" type="String">
+		<result property="name" column="name" />
+	</resultMap>
+	
+	<select id="selectUserRoleByID" resultMap="result1">
+		select app_role.name from app_role, user_role where app_role.id = user_role.role_id and user_role.user_id = #{id}
+	</select>
+	
+
+</mapper>

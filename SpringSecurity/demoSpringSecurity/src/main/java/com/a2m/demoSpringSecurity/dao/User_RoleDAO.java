@@ -1,0 +1,10 @@
+package com.a2m.demoSpringSecurity.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+import java.util.List;
+
+@Mapper
+public interface User_RoleDAO {
+
+	List<String> selectUserRoleByID(int id);
+}
